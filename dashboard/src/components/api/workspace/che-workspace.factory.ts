@@ -810,7 +810,7 @@ export class CheWorkspace {
 
     let promise = this.$http.get(url);
     promise.then((response: {data: any}) => {
-      this.workspaceLoaderUrl = url;
+      this.workspaceLoaderUrl = devmode ? proxySettings + url : url;
     }, (error: any) => {
       if (error.status !== 304) {
         this.workspaceLoaderUrl = null;
